@@ -1,10 +1,11 @@
 const express = require('express');
-const router = express.Router();
-const userRouter = require('../api/components/user/user.network')
+const userRouter = require('../api/components/user/user.network');
+const authRouter = require('../api/components/auth/auth.network')
 const {config} = require('../config/config');
 
 function routerApi(app) {
   app.use('/api/user', userRouter)
+  app.use('/api/auth', authRouter)
 }
 
 
