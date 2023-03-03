@@ -31,11 +31,12 @@ async function remove(table, id) {
   db[table].splice(index,1);
 }
 
-async function query(table, q) {
+async function query(table, q) { // q es un objeto
   let col = await list(table);
   let keys = Object.keys(q);
-  const key = keys[0]; // porque segun el profesor el usuario está en la posición uno de q
-  return col.find(item => item[key] === q[key]) || null
+  const key = keys[0]; // porque segun el profesor el usuario está en la posición cero de q
+  const answer = col.find(item => item[key] === q[key]) || null;
+  return answer
 }
 
 

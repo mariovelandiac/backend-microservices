@@ -5,13 +5,13 @@ const controller = require('./index')
 
 
 router.post('/login',
-async function (req, res) {
+async function (req, res, next) {
   try {
     const data = req.body;
     const user = await controller.login(data.username, data.password)
     response.sucess(req, res, user, 201)
   } catch (e) {
-    response.error(req, res, 'Información invalida', 400)
+      next(e)
   }
 });
 
