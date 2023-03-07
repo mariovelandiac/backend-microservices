@@ -14,9 +14,19 @@ const config = {
     db_port: process.env.MYSQL_DATABASE_PORT,
     dbUrl: process.env.MYSQL_DBURL || '',
   },
+  redis: {
+    port: process.env.REDIS_PORT,
+    host: process.env.REDIS_HOST,
+    password: process.env.REDIS_PASSWORD,
+  },
   mysqlService: {
     host: process.env.MYSQL_SRV_HOST || 'localhost',
     port: process.env.MYSQL_SRV_PORT || 3001
+  },
+  cacheService: {
+    host: process.env.CACHE_HOST || 'localhost',
+    port: process.env.CACHE_PORT || 3003
+
   },
   post: {
     port: process.env.POST_PORT || 3002

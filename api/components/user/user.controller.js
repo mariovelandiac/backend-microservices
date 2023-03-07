@@ -2,14 +2,26 @@ const TABLA = 'user';
 const nanoid = require('nanoid');
 const auth = require('../auth/');
 
-module.exports = function (injectedStore) {
+module.exports = function (injectedStore, injectedCache) {
+  let cache = injectedCache;
   let store = injectedStore;
   if (!store) {
     store = require('../../../store/dummy')
+  };
+
+  if (!cache) {
+    cache = require('../../../store/dummy')
   }
 
   async function list() {
-    const data = await store.list(TABLA);
+    let data = await cache.list(TABLA);
+    if (!data) {
+      console.log('No estaba en Caché, buscando en DB');
+      data = await store.list(TABLA);
+      cache.upsert(TABLA, data);
+    } else {
+      console.log('Información traida del caché');
+    }
     return data
   }
 
