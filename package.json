@@ -18,6 +18,8 @@
     "jsonwebtoken": "^9.0.0",
     "mysql": "^2.18.1",
     "nanoid": "^2.1.7",
+    "node-fetch": "^2.6.9",
+    "request": "^2.88.2",
     "swagger-ui-express": "^4.6.0"
   },
   "devDependencies": {

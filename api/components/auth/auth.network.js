@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const response = require('../../../network/response')
-const controller = require('./index')
+const response = require('../../../network/response');
+const controller = require('./index');
 
 
 router.post('/login',

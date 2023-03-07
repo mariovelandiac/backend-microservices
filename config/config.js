@@ -12,6 +12,13 @@ const config = {
     database: process.env.MYSQL_DATABASE,
     db_port: process.env.MYSQL_DATABASE_PORT,
     dbUrl: process.env.MYSQL_DBURL || '',
+  },
+  mysqlService: {
+    host: process.env.MYSQL_SRV_HOST || 'localhost',
+    port: process.env.MYSQL_SRV_PORT || 3001
+  },
+  post: {
+    port: process.env.POST_PORT || 3002
   }
 }
 
